@@ -9,3 +9,10 @@ This repository contains the `hunain_portfolio.html` portfolio page.
 ## Usage
 
 Open `hunain_portfolio.html` in a browser to view the portfolio.
+
+## Direct Web Link
+
+Open the portfolio directly in a web browser:
+
+https://htmlpreview.github.io/?https://github.com/Hunainafridi/portfolio/blob/main/hunain_portfolio.html
+
