@@ -14,5 +14,7 @@ Open `hunain_portfolio.html` in a browser to view the portfolio.
 
 Open the portfolio directly in a web browser:
 
-https://htmlpreview.github.io/?https://github.com/Hunainafridi/portfolio/blob/main/hunain_portfolio.html
+- GitHub Pages: https://hunainafridi.github.io/portfolio/
+- Raw preview: https://htmlpreview.github.io/?https://github.com/Hunainafridi/portfolio/blob/main/hunain_portfolio.html
 
+The site now includes the full portfolio at `index.html`, so the GitHub Pages URL loads the full page directly.
