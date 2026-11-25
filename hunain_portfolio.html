@@ -363,11 +363,15 @@
     gap: 1.25rem;
     width: 100%;
     animation: fadeUp 0.8s 0.4s ease both;
+    perspective: 1000px;
   }
   .hero-photo-wrap {
     position: relative;
     width: 180px;
     height: 180px;
+    transform-style: preserve-3d;
+    transition: transform 180ms ease-out;
+    filter: drop-shadow(0 18px 28px rgba(0, 245, 212, 0.16));
   }
   .hero-photo-wrap::before {
     content: '';
@@ -412,6 +416,9 @@
     text-align: center;
     transition: transform 0.3s;
     width: 100%;
+  }
+  .stat-card:last-child:nth-child(odd) {
+    grid-column: span 2;
   }
   @media (hover: hover) {
     .stat-card:hover { transform: translateZ(20px) rotateY(-5deg) translateY(-4px); }
@@ -1101,7 +1108,7 @@
 
     <div class="timeline-item">
       <div class="timeline-dot"></div>
-      <div class="timeline-date">2021 — Present</div>
+      <div class="timeline-date">2022 — 2026</div>
       <div class="timeline-role">BSc Computer Science</div>
       <div class="timeline-org">University of Engineering &amp; Technology (UET), Mardan</div>
       <div class="timeline-desc">Final year student. Core coursework in algorithms, operating systems, computer networks, databases, software engineering, and cloud computing.</div>
@@ -1149,7 +1156,7 @@
 </section>
 
 <footer>
-  <span>© 2025 Muhammad Hunain Zahid — UET Mardan</span>
+  <span>© 2026 Muhammad Hunain Zahid — UET Mardan</span>
   <span>Built with HTML, CSS &amp; Three.js</span>
 </footer>
 
@@ -1220,6 +1227,21 @@ if (hasFinePointer && cursor && ring) {
   document.querySelectorAll('a,button,.project-card,.skill-tag,.stat-card,.contact-link').forEach(el => {
     el.addEventListener('mouseenter', () => { cursor.style.width='20px'; cursor.style.height='20px'; ring.style.width='50px'; ring.style.height='50px'; });
     el.addEventListener('mouseleave', () => { cursor.style.width='12px'; cursor.style.height='12px'; ring.style.width='36px'; ring.style.height='36px'; });
+  });
+}
+
+// Subtle 3D portrait tilt for fine-pointer devices.
+const heroRight = document.querySelector('.hero-right');
+const photoWrap = document.querySelector('.hero-photo-wrap');
+if (heroRight && photoWrap && hasFinePointer) {
+  heroRight.addEventListener('mousemove', (event) => {
+    const rect = heroRight.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+    photoWrap.style.transform = `rotateX(${y * -10}deg) rotateY(${x * 12}deg) translateZ(18px)`;
+  });
+  heroRight.addEventListener('mouseleave', () => {
+    photoWrap.style.transform = '';
   });
 }
 
